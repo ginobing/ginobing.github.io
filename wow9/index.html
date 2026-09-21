@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wow90级骑术指南：魔兽世界90级骑术学习条件、价格、飞行坐骑解锁攻略，以及各种坐骑获取途径详解。">
+    <meta name="keywords" content="wow90级骑术, 魔兽世界骑术, 飞行坐骑, 魔兽世界攻略, 90级坐骑">
+    <title>wow90级骑术-魔兽世界90级飞行坐骑解锁与价格指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-dark: #121214;
+            --bg-card: #1e1e24;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-gold: #c6a87c;
+            --accent-blue: #4a90e2;
+            --accent-green: #4caf50;
+            --border-color: #33333d;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 20, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-primary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(30,30,36,0.8) 0%, rgba(18,18,20,0.9) 100%), 
+                        url('https://picsum.photos/seed/wowmount/1600/600') no-repeat center/cover;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(198, 168, 124, 0.4);
+        }
+
+        /* Content Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        /* Pricing Table */
+        .pricing-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .pricing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .price-tag {
+            font-size: 1.25rem;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .price-tag small {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .unlock-status {
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: rgba(76, 175, 80, 0.2);
+            color: var(--accent-green);
+        }
+
+        .unlock-status.locked {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: #ff5252;
+        }
+
+        /* Guide List */
+        .guide-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .guide-item {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .guide-icon {
+            font-size: 2rem;
+            background: rgba(74, 144, 226, 0.1);
+            color: var(--accent-blue);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .guide-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .guide-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .tips-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .tips-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .tips-list strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0c;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-card {
+                padding: 15px;
+            }
+
+            .guide-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>⚔️</span> WowGuides
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">骑术攻略</a></li>
+                    <li><a href="#">坐骑图鉴</a></li>
+                    <li><a href="#">装备指南</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>WOW90级骑术与飞行坐骑全解析</h1>
+            <p>在《魔兽世界》90级版本中，掌握正确的骑术学习路径是探索潘达利亚和德拉诺的关键。本文提供最新的价格、解锁条件及获取技巧。</p>
+            <a href="#unlock-guide" class="btn btn-primary">查看解锁指南</a>
+        </section>
+
+        <div class="main-grid">
+            <!-- Left Column: Content -->
+            <div class="content-area">
+                <!-- Pricing Info -->
+                <section id="pricing-info">
+                    <h2 class="section-title">90级骑术价格一览</h2>
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>地面骑术 (100%)</h3>
+                            <span class="price-tag">250金</span>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                            在90级后，地面骑术的价格回归到了经典模式。只需在各大主城的骑术训练师处花费250金即可学习，无需再通过任务解锁。
+                        </p>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>飞行骑术 (150%)</h3>
+                            <span class="price-tag">5000金</span>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                            学习地面骑术后，前往飞行训练师处支付5000金即可解锁90级的飞行能力。这是在潘达利亚开启自由飞行的必要条件。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Unlock Guide -->
+                <section id="unlock-guide">
+                    <h2 class="section-title">解锁流程详解</h2>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <div class="guide-icon">1️⃣</div>
+                            <div class="guide-content">
+                                <h3>学习基础地面骑术</h3>
+                                <p>确保角色等级达到90级，前往暴风城（联盟）或奥格瑞玛（部落）的骑术训练师处学习地面骑术。这是所有移动的基础。</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">2️⃣</div>
+                            <div class="guide-content">
+                                <h3>购买飞行训练</h3>
+                                <p>在完成主线任务“天谴之门”或达到90级后，前往飞行训练师。花费5000金币购买“飞行骑术”技能书。</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">3️⃣</div>
+                            <div class="guide-content">
+                                <h3>开启潘达利亚飞行</h3>
+                                <p>学习飞行骑术后，前往潘达利亚的各大主城（如锦绣谷）寻找飞行管理员。与飞行管理员对话，选择“开启潘达利亚飞行”即可。</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">4️⃣</div>
+                            <div class="guide-content">
+                                <h3>探索德拉诺</h3>
+                                <p>通过传送门进入德拉诺（破碎群岛）。在德拉诺，飞行能力默认开启，无需额外购买，但需注意部分区域需要完成前置任务线。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">💡 高效省钱技巧</h3>
+                    <ul class="tips-list">
+                        <li>
+                            <strong>利用消费税</strong>
+                            在学习骑术前，先清理背包中所有多余的绿色或紫色物品，将金币存入银行或拍卖行，以减少因消费税造成的金币损失。
+                        </li>
+                        <li>
+                            <strong>利用背包空间</strong>
+                            如果背包空间不足，无法支付高额金币，可以先清理背包，或通过邮件与角色互通金币后再学习。
+                        </li>
+                        <li>
+                            <strong>任务奖励替代</strong>
+                            虽然90级骑术是直接购买的，但在60-80级过程中，部分任务奖励了永久骑术（如血色十字军的战马），记得领取。
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">🚀 常见问题 (FAQ)</h3>
+                    <ul class="tips-list">
+                        <li>
+                            <strong>没有飞行坐骑可以飞吗？</strong>
+                            可以。学习“飞行骑术”技能后，角色可以驾驶任何拥有“飞行”模型的坐骑在空中飞行，无需购买特定的坐骑。
+                        </li>
+                        <li>
+                            <strong>飞行骑术可以共享吗？</strong>
+                            飞行骑术是角色技能，不能共享给其他角色。每个角色都需要单独学习。
+                        </li>
+                        <li>
+                            <strong>90级后骑术会涨价吗？</strong>
+                            不会。90级的骑术价格是固定的，不会像60级那样通过等级提升而涨价。
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 WowGuides. 魔兽世界游戏攻略站。本站为非官方网站，所有游戏知识产权归暴雪娱乐所有。</p>
+        </div>
+    </footer>
+
+</body>
+                              </html>
