@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="千年千岩官方资源站，提供高清壁纸、同人插画、视觉艺术作品展示与下载服务。">
+    <meta name="keywords" content="千年千岩, 千年千岩壁纸, 千年千岩同人, 视觉艺术, 插画">
+    <title>千年千岩-官方视觉艺术与壁纸资源中心</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f1014;
+            --card-bg: #18191f;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --accent: #6c5ce7;
+            --accent-hover: #5649c0;
+            --border: #2d2f36;
+            --nav-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            height: var(--nav-height);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(15, 16, 20, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            border-color: var(--border);
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-sub);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 16, 20, 0.7) 0%, rgba(15, 16, 20, 0.4) 100%), 
+                        url('https://picsum.photos/seed/kyoukai/1920/1080') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            margin-bottom: 30px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-more {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .section-more:hover {
+            color: var(--accent);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            group: card;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag {
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0b0e;
+            border-top: 1px solid var(--border);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            margin-top: 15px;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 15px auto;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <span>千年千岩</span>ART
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">精选壁纸</a></li>
+                    <li><a href="#">同人创作</a></li>
+                    <li><a href="#">画廊展示</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>探索永恒的艺术视界</h1>
+                <p>汇聚千年千岩风格的视觉盛宴，为您提供高清壁纸、同人插画及艺术作品展示与下载服务。</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="#" class="btn btn-primary">浏览作品</a>
+                    <a href="#" class="btn btn-outline">提交投稿</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">最新收录</h2>
+                <a href="#" class="section-more">查看全部 &rarr;</a>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/art1/600/400" alt="作品预览">
+                        <div class="card-overlay">
+                            <button class="btn btn-primary">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">星云深处</h3>
+                        <div class="card-meta">
+                            <span class="tag">壁纸</span>
+                            <span>2023.10.24</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/art2/600/400" alt="作品预览">
+                        <div class="card-overlay">
+                            <button class="btn btn-primary">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">静谧回廊</h3>
+                        <div class="card-meta">
+                            <span class="tag">插画</span>
+                            <span>2023.10.22</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/art3/600/400" alt="作品预览">
+                        <div class="card-overlay">
+                            <button class="btn btn-primary">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">幻想都市</h3>
+                        <div class="card-meta">
+                            <span class="tag">同人</span>
+                            <span>2023.10.20</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/art4/600/400" alt="作品预览">
+                        <div class="card-overlay">
+                            <button class="btn btn-primary">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">极光之夜</h3>
+                        <div class="card-meta">
+                            <span class="tag">壁纸</span>
+                            <span>2023.10.18</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">创作指南</h2>
+            </div>
+            
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">风格解析</h3>
+                    <p class="feature-desc">深入了解千年千岩独特的视觉语言，掌握光影与构图的运用技巧。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📥</div>
+                    <h3 class="feature-title">资源下载</h3>
+                    <p class="feature-desc">提供高清素材包与官方授权资源，助力您的二次创作与设计工作。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">社区交流</h3>
+                    <p class="feature-desc">加入创作者社群，分享您的作品，获取同好者的反馈与建议。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门标签</h2>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <a href="#" class="btn btn-outline">#幻想</a>
+                <a href="#" class="btn btn-outline">#赛博朋克</a>
+                <a href="#" class="btn btn-outline">#古风</a>
+                <a href="#" class="btn btn-outline">#二次元</a>
+                <a href="#" class="btn btn-outline">#风景</a>
+                <a href="#" class="btn btn-outline">#人像</a>
+                <a href="#" class="btn btn-outline">#唯美</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span>千年千岩</span>ART
+                    </a>
+                    <p>致力于传播独特的视觉美学，为创作者与爱好者提供最优质的展示平台。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">作品分类</a></li>
+                        <li><a href="#">投稿规则</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">团队介绍</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">Bilibili</a></li>
+                        <li><a href="#">Pixiv</a></li>
+                        <li><a href="#">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 千年千岩 ART. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
